@@ -15,7 +15,7 @@ using Library.API2.Models;
 
 namespace Library.API2.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class AutoresController : ApiController
     {
         private LibraryEntities db = new LibraryEntities();
@@ -147,6 +147,7 @@ namespace Library.API2.Controllers
             {
                 var novo = new AutorViewModel
                 {
+                    id = item.Id,
                     Nome = item.Nome,
                     Sobrenome = item.Sobrenome,
                     Nascimento = item.Nascimento.Date

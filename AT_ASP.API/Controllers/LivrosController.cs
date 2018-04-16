@@ -15,7 +15,7 @@ using Library.API2.Models;
 
 namespace Library.API2.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class LivrosController : ApiController
     {
         private LibraryEntities db = new LibraryEntities();
