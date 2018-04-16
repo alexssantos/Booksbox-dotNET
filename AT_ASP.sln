@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2010
+VisualStudioVersion = 15.0.27130.2024
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AT_ASP.API", "AT_ASP.API\AT_ASP.API.csproj", "{42761987-0702-4B4D-A6A3-D49D36BBC95A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AT_ASP.WebApp", "AT_ASP.WebApp\AT_ASP.WebApp.csproj", "{5462C57C-311C-4458-B3A1-4AF30FDC7991}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{42761987-0702-4B4D-A6A3-D49D36BBC95A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{42761987-0702-4B4D-A6A3-D49D36BBC95A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{42761987-0702-4B4D-A6A3-D49D36BBC95A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5462C57C-311C-4458-B3A1-4AF30FDC7991}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5462C57C-311C-4458-B3A1-4AF30FDC7991}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5462C57C-311C-4458-B3A1-4AF30FDC7991}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5462C57C-311C-4458-B3A1-4AF30FDC7991}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
