@@ -282,6 +282,7 @@
     <Content Include="Views\Livros\Details.cshtml" />
     <Content Include="Views\Livros\_AutoresDoLivro.cshtml" />
     <Content Include="Views\Livros\Create.cshtml" />
+    <Content Include="Views\Livros\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

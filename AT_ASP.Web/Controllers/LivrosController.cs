@@ -69,24 +69,33 @@ namespace AT_ASP.Web.Controllers
         }
 
         // GET: Livros/Edit/5
-        public ActionResult Edit(int id)
+        public async Task<ActionResult> Edit(int id)
         {
+            var response = await _client.GetLivroByIdAsync(id);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var model = await response.Content.ReadAsAsync<LivroDetails>();
+                return View(model);
+            }
+
+            ViewBag.Error = "Livro não Encontrado";
             return View();
         }
 
         // POST: Livros/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public async Task<ActionResult> Edit(int id, LivroDetails model)
         {
             try
             {
-                // TODO: Add update logic here
+                var response = await _client.PutLivroAsync(model);
 
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                return RedirectToAction("Index", "Home");
             }
         }
 
