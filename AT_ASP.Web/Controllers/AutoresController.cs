@@ -103,24 +103,36 @@ namespace AT_ASP.Web.Controllers
         }
 
         // GET: Autores/Delete/5
-        public ActionResult Delete(int id)
+        public async Task<ActionResult> Delete(int id)
         {
+            var response = await _client.GetAutorAsync(id);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var model = await response.Content.ReadAsAsync<AutorDetails>();
+                return View(model);
+            }
             return View();
         }
 
         // POST: Autores/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public async Task<ActionResult> Delete(int id, AutorDetails model)
         {
             try
             {
-                // TODO: Add delete logic here
+                var response = await _client.DeleteAutorAsync(model.Id);
 
-                return RedirectToAction("Index");
+                if (response.IsSuccessStatusCode)
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+
+                return RedirectToAction("Index", "Home");
             }
             catch
             {
-                return View();
+                return View("Error");
             }
         }
     }

@@ -276,6 +276,7 @@
     <Content Include="Views\Autores\_LivrosDoAutor.cshtml" />
     <Content Include="Views\Autores\Create.cshtml" />
     <Content Include="Views\Autores\Edit.cshtml" />
+    <Content Include="Views\Autores\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
