@@ -7,6 +7,7 @@ namespace Library.API2.Models
 {
     public class LivroViewModel
     {
+        public int id { get; set; }
         public string titulo { get; set; }
         public string isbn { get; set; }
         public int ano { get; set; }

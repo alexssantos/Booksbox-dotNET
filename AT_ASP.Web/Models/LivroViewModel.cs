@@ -7,6 +7,7 @@ namespace AT_ASP.Web.Models
 {    
     public class LivroViewModel
     {
+        public int id { get; set; }
         public string titulo { get; set; }
         public string isbn { get; set; }
         public int ano { get; set; }

@@ -1,0 +1,45 @@
+﻿@model IEnumerable<AT_ASP.Web.Models.LivroViewModel>
+
+<h2>Todos Livros</h2>
+
+<div class="col-md-offset-8 text-right">
+    <p class="btn btn-lg btn-default ">
+        @Html.ActionLink("Novo Livro", "Create")
+    </p>
+</div>
+<br />
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.titulo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.isbn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ano)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.titulo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.isbn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ano)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id=item.id }) |
+                @Html.ActionLink("+ Info", "Details", new { id=item.id }) |
+                @Html.ActionLink("Deletar", "Delete", new { id=item.id })
+            </td>
+        </tr>
+    }
+
+</table>
