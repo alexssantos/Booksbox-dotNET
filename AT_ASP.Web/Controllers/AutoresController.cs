@@ -72,18 +72,27 @@ namespace AT_ASP.Web.Controllers
         }
 
         // GET: Autores/Edit/5
-        public ActionResult Edit(int id)
+        public async Task<ActionResult> Edit(int id)
         {
+            var response = await _client.GetAutorAsync(id);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var model = await response.Content.ReadAsAsync<AutorDetails>();
+                return View(model);
+            }
+
+            ViewBag.Erro = "Autor não Encontrado";
             return View();
         }
 
         // POST: Autores/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public async Task<ActionResult> Edit(int id, AutorDetails model)
         {
             try
             {
-                // TODO: Add update logic here
+                var response = await _client.PutAutorAsync(model);
 
                 return RedirectToAction("Index");
             }

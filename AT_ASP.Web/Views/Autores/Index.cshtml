@@ -1,14 +1,13 @@
 ﻿@model IEnumerable<AT_ASP.Web.Models.AutorViewModel>
 
-@{
-    ViewBag.Title = "Index";
-}
+<h2>Todos Autores</h2>
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<div class="col-md-offset-8 text-right">
+    <p class="btn btn-lg btn-default ">
+        @Html.ActionLink("Novo Autor", "Create")
+    </p>
+</div>
+<br />
 <table class="table">
     <tr>
         <th>
