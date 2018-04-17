@@ -195,6 +195,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AutoresController.cs" />
+    <Compile Include="Controllers\AutorLivroController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HttpClientApi\HttpClientApi.cs" />
     <Compile Include="Controllers\LivrosController.cs" />
@@ -278,9 +279,13 @@
     <Content Include="Views\Autores\Edit.cshtml" />
     <Content Include="Views\Autores\Delete.cshtml" />
     <Content Include="Views\Livros\Index.cshtml" />
+    <Content Include="Views\Livros\Details.cshtml" />
+    <Content Include="Views\Livros\_AutoresDoLivro.cshtml" />
+    <Content Include="Views\Livros\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\AutorLivro\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

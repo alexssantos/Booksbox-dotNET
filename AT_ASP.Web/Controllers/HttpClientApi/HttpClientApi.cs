@@ -28,6 +28,7 @@ namespace WebApp_Api.Controllers.HttpClientApi
             _client.DefaultRequestHeaders.Accept.Add(mediaType);
         }
 
+        #region Autores
         //Autores
         public async Task<HttpResponseMessage> GetAutoresAsync()
         {
@@ -53,7 +54,7 @@ namespace WebApp_Api.Controllers.HttpClientApi
         {
             return await _client.DeleteAsync($"api/Autores/{id}");
         }
-
+        #endregion
 
         //Livros
         public async Task<HttpResponseMessage> GetLivrosAsync()
@@ -68,7 +69,7 @@ namespace WebApp_Api.Controllers.HttpClientApi
 
         public async Task<HttpResponseMessage> PutLivroAsync(LivroDetails model)
         {
-            return await _client.PutAsJsonAsync($"api/Livros/{model.Id}", model);
+            return await _client.PutAsJsonAsync($"api/Livros/{model.id}", model);
         }
 
         public async Task<HttpResponseMessage> PostLivroAsync(LivroDetails model)

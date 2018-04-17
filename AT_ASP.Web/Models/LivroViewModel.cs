@@ -11,10 +11,10 @@ namespace AT_ASP.Web.Models
         public string titulo { get; set; }
         public string isbn { get; set; }
         public int ano { get; set; }
-        public List<Autor_LivroViewModel> AutoresDoLivro { get; set; }
+        public List<AutoresDoLivro> AutoresDoLivro { get; set; }
     }
 
-    public class Autor_LivroViewModel
+    public class AutoresDoLivro
     {
         public string Nome { get; set; }
         public string Sobrenome { get; set; }

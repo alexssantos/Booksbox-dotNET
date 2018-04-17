@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -7,10 +8,22 @@ namespace AT_ASP.Web.Models
 {
     public class LivroDetails
     {
-        public int Id { get; set; }
+        public int id { get; set; }
+
+        [Required]
+        [Display(Name = "Título do Livro")]
+        [MaxLength(50)]
         public string titulo { get; set; }
+
+        //ISBN 10 Digitos -> [RegularExpression(@"^(?:ISBN(?:-10)?:?\)?(?=[0-9X]{10}$|(?=(?:[0-9]+[-\]){3})[-\0-9X]{13}$)[0-9]{1,5}[-\]?[0 - 9]+[-\]?[0 - 9]+[-\]?[0 - 9X]$", ErrorMessage = "Número ISBN Incorreto. 10 Digitos")]       
+        [Required(ErrorMessage = "Campo Obrigatorio. Ex.: XXX-XXX-XXXXX-X-X")]
+        [Display(Name = "ISBN")]
         public string isbn { get; set; }
+
+        [Required]
+        [Display(Name = "Ano")]        
         public int ano { get; set; }
-        public List<Autor_LivroViewModel> AutoresDoLivro { get; set; }
+
+        public List<AutoresDoLivro> AutoresDoLivro { get; set; }
     }
 }

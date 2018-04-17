@@ -12,21 +12,26 @@
 </div>
 
 <div class="row">
-    <div class="col-md-4">
+    
+    <div class="col-md-4">        
         <h2>Autores Cadastrados</h2>
         <p>
             Quais são os melhores livros e autores de todos os tempos? Ainda que uma lista de “melhores” em qualquer coisa 
             e disciplina sempre termine em polêmica – que o diga o pessoal da Rolling Stones -, talvez ditos questionamentos 
             seriam menores se a lista fosse realizada por pessoas experimentadas no tema ou no ...
         </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        <p class="btn btn-default">@Html.ActionLink("Autores","Index", "Autores") &raquo;</p>
     </div>
-    <div class="col-md-4">
+
+    <div class="col-md-4">       
         <h2>Nossos Livros</h2>
-        <p>A maior variedade de livros nacionais e importados para você! Romances, Sagas, Best Sellers, Box, Estudos e muito 
-            mais com preços incríveis na LivrariaAqui.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        <p>
+            A maior variedade de livros nacionais e importados para você! Romances, Sagas, Best Sellers, Box, Estudos e muito
+            mais com preços incríveis na LivrariaAqui.
+        </p>
+        <p class="btn btn-default">@Html.ActionLink("Livros", "Index", "Autores") &raquo;</p>
     </div>
+    
     <div class="col-md-4">
         <h2>Sobre a Biblioteca</h2>
         <p>
@@ -34,6 +39,6 @@
             tradicional do termo, é um local em que são guardados livros, documentos tridimensionais e demais publicações para o
             público estudar, ler e consultar estas obras.
         </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        <p class="btn btn-default">@Html.ActionLink("Saiba Mais", "About", "Home") &raquo;</p>
     </div>
 </div>

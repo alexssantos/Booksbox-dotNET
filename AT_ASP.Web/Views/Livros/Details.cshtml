@@ -1,0 +1,40 @@
+﻿@model AT_ASP.Web.Models.LivroDetails
+
+<br />
+<div>
+    <h2>Livro: @Model.titulo</h2>
+    <hr />
+    <dl class="dl-horizontal text-primary">
+        <dt>
+            @Html.DisplayNameFor(model => model.titulo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.titulo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.isbn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.isbn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ano)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ano)
+        </dd>
+
+    </dl>
+</div>
+<div>
+    @Html.Partial("_AutoresDoLivro", ViewData["AutoresDoLivro"])
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -31,9 +31,19 @@ namespace AT_ASP.Web.Controllers
         }
 
         // GET: Livros/Details/5
-        public ActionResult Details(int id)
+        public async Task<ActionResult> Details(int id)
         {
-            return View();
+            var response = await _client.GetLivroByIdAsync(id);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var model = await response.Content.ReadAsAsync<LivroDetails>();
+                ViewData["AutoresDoLivro"] = model.AutoresDoLivro;
+
+                return View("Details", model);
+            }
+
+            return View("Error");
         }
 
         // GET: Livros/Create
@@ -44,17 +54,17 @@ namespace AT_ASP.Web.Controllers
 
         // POST: Livros/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public async Task<ActionResult> Create(LivroDetails model)
         {
             try
             {
-                // TODO: Add insert logic here
+                await _client.PostLivroAsync(model);
 
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                return View("Error");
             }
         }
 

@@ -144,6 +144,7 @@ namespace Library.API2.Controllers
             {
                 var novo = new LivroViewModel
                 {
+                    id = item.Id,
                     titulo = item.titulo,
                     isbn = item.isbn,
                     ano = item.ano
