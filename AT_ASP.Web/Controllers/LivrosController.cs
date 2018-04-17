@@ -1,17 +1,32 @@
-﻿using System;
+﻿using AT_ASP.Web.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using WebApp_Api.Controllers.HttpClientApi;
 
 namespace AT_ASP.Web.Controllers
 {
     public class LivrosController : Controller
     {
+
+        private readonly HttpApiClient _client = new HttpApiClient();
+
         // GET: Livros
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
-            return View();
+            var response = await _client.GetLivrosAsync();
+
+            if (response.IsSuccessStatusCode)
+            {
+                var models = await response.Content.ReadAsAsync<IEnumerable<LivroViewModel>>();
+
+                return View(models);
+            }
+
+            return View("Error", new List<LivroViewModel>());
         }
 
         // GET: Livros/Details/5

@@ -28,7 +28,7 @@ namespace WebApp_Api.Controllers.HttpClientApi
             _client.DefaultRequestHeaders.Accept.Add(mediaType);
         }
 
-        //GetAll
+        //Autores
         public async Task<HttpResponseMessage> GetAutoresAsync()
         {
             return await _client.GetAsync("api/Autores");
@@ -52,6 +52,33 @@ namespace WebApp_Api.Controllers.HttpClientApi
         public async Task<HttpResponseMessage> DeleteAutorAsync(int id)
         {
             return await _client.DeleteAsync($"api/Autores/{id}");
+        }
+
+
+        //Livros
+        public async Task<HttpResponseMessage> GetLivrosAsync()
+        {
+            return await _client.GetAsync("api/Livros");
+        }
+
+        public async Task<HttpResponseMessage> GetLivroByIdAsync(int id)
+        {
+            return await _client.GetAsync($"api/Livros/{id}");
+        }
+
+        public async Task<HttpResponseMessage> PutLivroAsync(LivroDetails model)
+        {
+            return await _client.PutAsJsonAsync($"api/Livros/{model.Id}", model);
+        }
+
+        public async Task<HttpResponseMessage> PostLivroAsync(LivroDetails model)
+        {
+            return await _client.PostAsJsonAsync("api/Livros", model);
+        }
+
+        public async Task<HttpResponseMessage> DeleteLivroAsync(int id)
+        {
+            return await _client.DeleteAsync($"api/Livros/{id}");
         }
     }
 }

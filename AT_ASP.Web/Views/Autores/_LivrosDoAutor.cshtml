@@ -1,9 +1,15 @@
 ﻿@model IEnumerable<AT_ASP.Web.Models.LivrosDoAutorModel>
-
-<h3>Livros do Autor</h3>
+<br />
+<h3 class="text-center">Livros do Autor</h3>
 <p>
-    @Html.ActionLink("+1 Livro", "Create")
+    
 </p>
+<div class="col-md-offset-8 text-right">
+    <p class="btn btn-lg btn-default ">
+        @Html.ActionLink("+1 Livro", "Create", "Livros")
+    </p>
+</div>
+<br />
 <table class="table">
     <tr>
         <th>
@@ -29,7 +35,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.ano)
         </td>
-        <td>
+        <td class="text-right">
             @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
             @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
             @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
