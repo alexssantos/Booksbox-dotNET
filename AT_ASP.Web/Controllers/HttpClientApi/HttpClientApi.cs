@@ -75,11 +75,30 @@ namespace WebApp_Api.Controllers.HttpClientApi
         public async Task<HttpResponseMessage> PostLivroAsync(LivroDetails model)
         {
             return await _client.PostAsJsonAsync("api/Livros", model);
-        }
+        }            
 
         public async Task<HttpResponseMessage> DeleteLivroAsync(int id)
         {
             return await _client.DeleteAsync($"api/Livros/{id}");
         }
+
+        #region Autor_livro
+
+        public async Task<HttpResponseMessage> GetAutor_LivroAsync()
+        {
+            return await _client.GetAsync("api/Autor_Livro");
+        }       
+        
+        public async Task<HttpResponseMessage> PostAutor_LivroAsync(Autor_Livro model)
+        {
+            return await _client.PostAsJsonAsync("api/Autor_Livro", model);
+        }
+
+        public async Task<HttpResponseMessage> DeleteAutor_LivroAsync(int id)
+        {
+            return await _client.DeleteAsync($"api/Autor_Livro/{id}");
+        }
+
+        #endregion
     }
 }

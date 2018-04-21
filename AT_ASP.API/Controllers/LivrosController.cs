@@ -89,17 +89,17 @@ namespace Library.API2.Controllers
         // POST: api/Livros
         [ResponseType(typeof(Livros))]
         [HttpPost]
-        public async Task<IHttpActionResult> CreateLivros(Livros livros)
+        public async Task<int> CreateLivros(Livros livros)
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                throw new HttpResponseException(HttpStatusCode.BadRequest);
             }
 
             db.Livros.Add(livros);
             await db.SaveChangesAsync();
 
-            return CreatedAtRoute("DefaultApi", new { id = livros.Id }, livros);
+            return livros.Id;
         }
 
         // DELETE: api/Livros/5

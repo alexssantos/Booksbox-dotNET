@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web;
@@ -47,9 +48,32 @@ namespace AT_ASP.Web.Controllers
         }
 
         // GET: Livros/Create
-        public ActionResult Create()
+        public async Task<ActionResult> Create(int AutorId=0)
         {
-            return View();
+            var model = new LivroDetails
+            {
+                AutorId = AutorId
+            };
+
+            var response = await _client.GetAutoresAsync();
+
+            if (response.IsSuccessStatusCode)
+            {
+                var Autores = await response.Content.ReadAsAsync<IEnumerable<AutorViewModel>>();
+
+                foreach (var autor in Autores)
+                {
+                    model.AutoresDisponiveis.Add(new SelectListItem
+                    {
+                        Value = autor.id.ToString(),
+                        Text = autor.Nome,
+                        Selected = autor.id == model.AutorId
+                    });
+
+                }
+            }
+
+            return View(model);
         }
 
         // POST: Livros/Create
@@ -58,7 +82,17 @@ namespace AT_ASP.Web.Controllers
         {
             try
             {
-                await _client.PostLivroAsync(model);
+                //criar livro
+                var response = await _client.PostLivroAsync(model);
+                
+                //var a = await response.Content.ReadAsAsync<List<int>>();                
+                //var create = new Autor_Livro
+                //{
+                //    IdAutor = model.AutorId,
+                //    IdLivro = a[0]
+                //};
+                ////criar vinculo livro autor
+                //await _client.PostAutor_LivroAsync(create);
 
                 return RedirectToAction("Index");
             }

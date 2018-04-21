@@ -206,6 +206,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AutorDetails.cs" />
     <Compile Include="Models\AutorViewModel.cs" />
+    <Compile Include="Models\Autor_Livro.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LivroDetails.cs" />
     <Compile Include="Models\LivroViewModel.cs" />

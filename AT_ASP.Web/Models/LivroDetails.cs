@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace AT_ASP.Web.Models
 {
@@ -25,5 +26,13 @@ namespace AT_ASP.Web.Models
         public int ano { get; set; }
 
         public List<AutoresDoLivro> AutoresDoLivro { get; set; }
+
+        public int AutorId { get; set; }
+        public IList<SelectListItem> AutoresDisponiveis { get; set; }
+
+        public LivroDetails()
+        {
+            AutoresDisponiveis = new List<SelectListItem>();
+        }
     }
 }
