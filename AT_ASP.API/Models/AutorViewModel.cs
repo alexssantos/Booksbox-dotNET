@@ -7,10 +7,10 @@ namespace Library.API2.Models
 {
     public class AutorViewModel
     {
-        public int id { get; set; }
-        public string Nome { get; set; }
-        public string Sobrenome { get; set; }
-        public DateTime Nascimento { get; set; }
+        public int      id          { get; set; }
+        public string   Nome        { get; set; }
+        public string   Sobrenome   { get; set; }
+        public DateTime Nascimento  { get; set; }
         public List<Livro_AutorViewModel> LivrosEscritos { get; set; }
     }
 
@@ -18,6 +18,6 @@ namespace Library.API2.Models
     {
         public string titulo { get; set; }
         public string isbn { get; set; }
-        public int ano { get; set; }
+        public int    ano { get; set; }
     }
 }

@@ -24,7 +24,7 @@ namespace Library.API2.Controllers
         [HttpGet]
         public List<AutorViewModel> GetAutores()
         {
-            //pega todos os autores
+            //pega todos os autores (Com livros associados)
             List<Autores> ListaAutoresDB = db.Autores.ToList();
 
             if (ListaAutoresDB == null)
@@ -145,6 +145,7 @@ namespace Library.API2.Controllers
             //Mapeando aobjeto
             foreach (var item in ListaAutores)
             {
+                //AUTOR
                 var novo = new AutorViewModel
                 {
                     id = item.Id,
@@ -153,6 +154,7 @@ namespace Library.API2.Controllers
                     Nascimento = item.Nascimento.Date
                 };
 
+                //LIVROS
                 List<Livro_AutorViewModel> LivrosDoAutor = new List<Livro_AutorViewModel>();
 
                 //Lista de Objetos com pares de:  Id_livro <-> Id_Autor
@@ -162,12 +164,17 @@ namespace Library.API2.Controllers
                     var livro = db.Livros.Single(x => x.Id == par.Id_Livro);
 
                     //mapear o livro e adiciona a lista                   
-                    if (livro != null) {
-                        LivrosDoAutor.Add(new Livro_AutorViewModel { titulo = livro.titulo,
-                                                                     isbn = livro.isbn,
-                                                                     ano = livro.ano });
+                    if (livro != null)
+                    {
+                        LivrosDoAutor.Add( new Livro_AutorViewModel
+                        {
+                            titulo = livro.titulo,
+                            isbn = livro.isbn,
+                            ano = livro.ano
+                        });
                     }
                 };
+
                 novo.LivrosEscritos = LivrosDoAutor;
                 ListaRetorno.Add(novo);
             }

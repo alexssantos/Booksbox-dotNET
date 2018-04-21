@@ -100,25 +100,37 @@ namespace AT_ASP.Web.Controllers
         }
 
         // GET: Livros/Delete/5
-        public ActionResult Delete(int id)
+        public async Task<ActionResult> Delete(int id)
         {
+            var response = await _client.GetLivroByIdAsync(id);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var model = await response.Content.ReadAsAsync<LivroDetails>();
+                return View(model);
+            }
             return View();
         }
 
         // POST: Livros/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public async Task<ActionResult> Delete(int id, LivroDetails model)
         {
             try
             {
-                // TODO: Add delete logic here
+                var response = await _client.DeleteLivroAsync(model.id);
 
-                return RedirectToAction("Index");
+                if (response.IsSuccessStatusCode)
+                {
+                    return RedirectToAction("Index");
+                }
+
+                return RedirectToAction("Index", "Home");
             }
             catch
             {
-                return View();
-            }
+                return View("Error");
+            }            
         }
     }
 }
