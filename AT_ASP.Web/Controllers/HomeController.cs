@@ -15,7 +15,7 @@ namespace AT_ASP.Web.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Feita para você e seus amores em papel.";
 
             return View();
         }
