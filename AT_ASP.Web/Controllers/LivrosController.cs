@@ -11,9 +11,9 @@ using WebApp_Api.Controllers.HttpClientApi;
 
 namespace AT_ASP.Web.Controllers
 {
+    [Authorize]
     public class LivrosController : Controller
     {
-
         private readonly HttpApiClient _client = new HttpApiClient();
 
         // GET: Livros
