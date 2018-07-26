@@ -12,13 +12,13 @@ namespace AT_ASP.Web.Models
         public int id { get; set; }
 
         [Required]
-        [Display(Name = "Título do Livro")]
+        [Display(Name = "Título")]
         [MaxLength(50)]
         public string titulo { get; set; }
 
-        //ISBN 10 Digitos -> [RegularExpression(@"^(?:ISBN(?:-10)?:?\)?(?=[0-9X]{10}$|(?=(?:[0-9]+[-\]){3})[-\0-9X]{13}$)[0-9]{1,5}[-\]?[0 - 9]+[-\]?[0 - 9]+[-\]?[0 - 9X]$", ErrorMessage = "Número ISBN Incorreto. 10 Digitos")]       
+        //Regex - ISBN 10 Digitos -> [RegularExpression(@"^(?:ISBN(?:-10)?:?\)?(?=[0-9X]{10}$|(?=(?:[0-9]+[-\]){3})[-\0-9X]{13}$)[0-9]{1,5}[-\]?[0 - 9]+[-\]?[0 - 9]+[-\]?[0 - 9X]$", ErrorMessage = "Número ISBN Incorreto. 10 Digitos")]       
         [Required(ErrorMessage = "Campo Obrigatorio. Ex.: XXX-XXX-XXXXX-X-X")]
-        [Display(Name = "ISBN")]
+        [Display(Name = "ISBN", Description = "XXX-XXX-XXXXX-X-X")]
         public string isbn { get; set; }
 
         [Required]

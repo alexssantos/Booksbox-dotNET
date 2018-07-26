@@ -1,5 +1,5 @@
 ﻿@model AT_ASP.Web.Models.LivroDetails
-
+<br />
 <h4>Novo Livro</h4>
 
 @using (Html.BeginForm())
@@ -22,7 +22,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.isbn, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.isbn, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.isbn, new { htmlAttributes = new { @class = "form-control", placeholder = "XXX-XXX-XXXXX-X-X" } })
             @Html.ValidationMessageFor(model => model.isbn, "", new { @class = "text-danger" })
         </div>
     </div>
